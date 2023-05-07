@@ -18,9 +18,13 @@ Present back to the group with some slides explaining the difference between Doc
 
 Can we add a second service that relies on the one you’ve dockerised (a frontend relying on an API perhaps?) Can you add it so the two get spun up and can work together.
 
-## How to run using Docker
+## Run health-checker with PostgreSQL using Docker Compose
 
-Build the Docker image by running the following command:
+`docker-compose up`
+
+## How to run stand alone container using Docker
+
+Build the health-checker Docker image by running the following command:
 `docker build -t health-checker .`
 Once the image is built, you can run a container using the following command:
 `docker run health-checker`
