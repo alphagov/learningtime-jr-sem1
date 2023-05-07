@@ -2,7 +2,7 @@
 Create a basic containerised application that periodically checks the health of a system and logs the results. 
 
 ## Features:
-A Dockerised application that pings a /health-check endpoint on a website I will provide every hour
+A Dockerised application that pings a /health-check endpoint on a website I will provide every 60 seconds
 
 Logs the result to a database, along with a timestamp and success or failure state
 
