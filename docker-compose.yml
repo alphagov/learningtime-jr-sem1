@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  health_checker:
+    build: .
+    image: health-checker:latest
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+    ports:
+      - "5432:5432"
