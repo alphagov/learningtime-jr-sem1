@@ -20,6 +20,8 @@ Can we add a second service that relies on the one you’ve dockerised (a fronte
 
 ## Run health-checker with PostgreSQL using Docker Compose
 
+`docker-compose build`
+
 `docker-compose up`
 
 ## How to run stand alone container using Docker
