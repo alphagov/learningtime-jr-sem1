@@ -4,6 +4,8 @@ services:
   health_checker:
     build: .
     image: health-checker:latest
+    depends_on:
+      - db
 
   db:
     image: postgres:latest
