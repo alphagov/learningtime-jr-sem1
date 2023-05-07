@@ -1,4 +1,6 @@
 import requests
+import time
+
 def check_endpoint(url):
     try:
         response = requests.get(url, timeout=5)
@@ -9,4 +11,8 @@ def check_endpoint(url):
     except requests.exceptions.RequestException as exception:
         print(f"Request to {url} failed. Error: {str(exception)}")
 
-check_endpoint('https://www.python.org')
+url_to_check = 'https://www.python.org'
+
+while True:
+    check_endpoint(url_to_check)
+    time.sleep(60)
