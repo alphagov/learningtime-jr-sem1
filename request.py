@@ -43,6 +43,21 @@ def check_endpoint(url):
     except requests.exceptions.RequestException as e:
         print(f"Request to {url} failed. Error: {str(e)}")
 
+        conn = psycopg2.connect(
+            dbname="postgres",
+            user="postgres",
+            password="mysecretpassword",
+            host="db",
+            port="5432"
+        )
+
+        with conn.cursor() as cursor:
+                cursor.execute("""
+                    INSERT INTO response_times (url, response_code, response_time_ms, checked_at)
+                    VALUES (%s, %s, %s, NOW());
+                """, (url, "0", 0))
+                conn.commit()
+
 url_to_check = 'https://www.python.org'
 
 while True:
