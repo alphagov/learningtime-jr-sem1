@@ -30,3 +30,7 @@ Build the health-checker Docker image by running the following command:
 `docker build -t health-checker .`
 Once the image is built, you can run a container using the following command:
 `docker run health-checker`
+
+##Access from a browser
+
+Once the services are running, visit the app on http://localhost:4000
