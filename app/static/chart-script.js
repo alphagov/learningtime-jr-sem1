@@ -4,7 +4,11 @@ async function fetchData() {
 }
 
 async function createChart() {
-    const responseTimes = await fetchData();
+    const data = await fetchData(); 
+    const chartData = data.map(datum => ({
+      x: new Date(datum.checked_at.replace(' ', 'T')), 
+      y: datum.response_time_ms
+    }));
 
     const chartData = {
         labels: responseTimes.map(rt => new Date(rt.checked_at)),
