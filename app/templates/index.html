@@ -15,31 +15,6 @@
     <div>
         <canvas id="myChart"></canvas>
     </div>
-      
-    <script>
-    const ctx = document.getElementById('myChart');
-    
-    const labels = ["00:00", "00:01", "00:02","00:03","00:04", "asd"]
-    const data = {
-      labels: labels,
-      datasets: [{
-        label: 'Response time (ms)',
-        data: [65, 59, 80, 0, 81, 56, 55, 40],
-        fill: true,
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1
-      }]
-    };
-    
-    const config = {
-      type: 'line',
-      data: data,
-    };
-
-    const responseTimeChart = new Chart(
-            document.getElementById('myChart'),
-            config
-        );
-    </script>
+    <script src="{{ url_for('static', filename='chart-script.js') }}"></script>
 </body>
 </html>
