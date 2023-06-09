@@ -22,16 +22,17 @@ def check_endpoint(url):
                 """)
                 conn.commit()
     try:
-        response = requests.get(url, timeout=5).status_code
+        response = requests.get(url, timeout=5)
+        response_code = response.status_code
         response_time_ms = response.elapsed.total_seconds() * 1000
     except requests.exceptions.RequestException as e:
-       response = 500
+       response_code = 500
        response_time_ms = 0
     with conn.cursor() as cursor:
                 cursor.execute("""
                     INSERT INTO response_times (url, response_code, response_time_ms, checked_at)
                     VALUES (%s, %s, %s, NOW());
-                """, (url, response, response_time_ms))
+                """, (url, response_code, response_time_ms))
                 conn.commit()
     conn.close()
 
