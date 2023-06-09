@@ -10,49 +10,27 @@ async function createChart() {
       y: datum.response_time_ms
     }));
 
-    const chartData = {
-        labels: responseTimes.map(rt => new Date(rt.checked_at)),
+    new Chart(document.getElementById("myChart"), {
+      type: 'line',
+      data: {
         datasets: [{
-            label: 'Response Time (ms)',
-            data: responseTimes.map(rt => rt.response_time_ms),
-            borderColor: 'rgb(75, 192, 192)',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            tension: 0.1
+          label: 'Response Time (ms)',
+          data: chartData,
+          borderColor: 'rgb(255, 99, 132)',
+          backgroundColor: 'rgba(255, 99, 132, 0.5)'
         }]
-    };
-
-    const chartConfig = {
-        type: 'line',
-        data: chartData,
-        options: {
-            scales: {
-                x: {
-                    type: 'time',
-                    time: {
-                        unit: 'minute',
-                        displayFormats: {
-                            minute: 'h:mm a'
-                        }
-                    },
-                    title: {
-                        display: true,
-                        text: 'Time Checked At'
-                    }
-                },
-                y: {
-                    title: {
-                        display: true,
-                        text: 'Response Time (ms)'
-                    }
-                }
+      },
+      options: {
+        scales: {
+          x: {
+            type: 'time',
+            time: {
+              unit: 'minute'
             }
+          }
         }
-    };
-
-    const responseTimeChart = new Chart(
-        document.getElementById('responseTimeChart'),
-        chartConfig
-    );
+      }
+    });
 }
 
 createChart();
