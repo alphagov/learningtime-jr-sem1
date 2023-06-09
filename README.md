@@ -20,9 +20,9 @@ Can we add a second service that relies on the one you’ve dockerised (a fronte
 
 ## Run health-checker with PostgreSQL using Docker Compose
 
-`docker-compose build`
+`docker-compose build` to build the images required.
 
-`docker-compose up`
+`docker-compose up` to start up the containers.
 
 ## How to run stand alone container using Docker
 
@@ -34,3 +34,11 @@ Once the image is built, you can run a container using the following command:
 ##Access from a browser
 
 Once the services are running, visit the app on http://localhost:4000
+
+## How to access the backend PostgresDB
+
+Run `psql -U postgres` within the database Docker container.
+
+`\dt+` displays all tables in extended view.
+`SELECT * FROM response_times;` queries all data from the response_times table.
+`DROP TABLE response_times;` to delete the table.
